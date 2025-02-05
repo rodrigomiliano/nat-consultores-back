@@ -14,3 +14,6 @@ CREATE TABLE IF NOT EXISTS tasks (
     priority NVARCHAR(10) CHECK (priority IN ('HIGH', 'MEDIUM', 'LOW')) NOT NULL,
     category NVARCHAR(50) NULL
 );
+
+CREATE INDEX idx_tasks_status ON tasks (status);
+CREATE INDEX idx_tasks_priority ON tasks (priority);
