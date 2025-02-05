@@ -13,9 +13,14 @@ public class SecurityConfig {
         return http
             .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF si no usas autenticación basada en formularios
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/tasks/**").permitAll() // Permitir acceso sin autenticación a los endpoints de tareas
+            		.requestMatchers(
+            	            "/api/tasks/**",  // Permitir acceso a la API de tareas
+            	            "/swagger-ui/**", // Permitir acceso a Swagger UI
+            	            "/v3/api-docs/**" // Permitir acceso a la documentación generada
+            	        ).permitAll()
                 .anyRequest().authenticated() // Restringe cualquier otro endpoint
             )
             .build();
     }
 }
+
