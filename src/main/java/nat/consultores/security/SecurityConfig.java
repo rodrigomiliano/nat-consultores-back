@@ -16,7 +16,8 @@ public class SecurityConfig {
             		.antMatchers(
             	            "/api/tasks/**",  // Permitir acceso a la API de tareas
             	            "/swagger-ui/**", // Permitir acceso a Swagger UI
-            	            "/v3/api-docs/**" // Permitir acceso a la documentación generada
+            	            "/swagger-ui.html",            	            
+            	            "/v2/api-docs/**" // Permitir acceso a la documentación generada
             	        ).permitAll()
                 .anyRequest().authenticated() // Restringe cualquier otro endpoint
             )
